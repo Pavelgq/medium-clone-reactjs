@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
 
 import Routes from 'routes';
-import TopBar from 'components/TopBar/TopBar'
+import TopBar from 'components/TopBar/TopBar';
+
+import './index.css';
 
 const App = () => {
   return (
