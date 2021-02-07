@@ -23,11 +23,10 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/**/*.{js,jsx,json,css}": [
+    "*.{js,jsx,json,css}": [
       "prettier --write", 
       "git add"
     ]
-
   },
   "eslintConfig": {
     "extends": [
