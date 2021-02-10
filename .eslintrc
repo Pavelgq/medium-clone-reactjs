@@ -1,13 +1,16 @@
 {
-    "extends": [
-      "react-app",
-      "prettier"
-    ],
-    "rules": {
-      "prettier/prettier": "error",
-      "no-console": "warn"
-    },
-    "plugins": [
-      "prettier"
-    ]
-  }
+  "env": {
+    "es6": true
+  },
+  "extends": [
+    "react-app",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": "warn"
+  },
+  "plugins": [
+    "prettier"
+  ]
+}
