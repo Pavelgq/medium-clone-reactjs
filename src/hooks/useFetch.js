@@ -18,6 +18,7 @@ export default (url) => {
   }, [])
 
   useEffect(() => {
+    let skipGetResponseAfterDestroy = false
     const requestOptions = {
       ...options,
       ...{
@@ -27,20 +28,26 @@ export default (url) => {
       },
     }
     if (!isLoading) {
-      return
+      return false
     }
     axios(baseUrl + url, requestOptions)
       .then((res) => {
-        console.log('answer', res)
-        setResponse(res.data)
-        setIsLoading(false)
+        if (!skipGetResponseAfterDestroy) {
+          setResponse(res.data)
+          setIsLoading(false)
+        }
       })
       .catch((resError) => {
         // Todo What if this error is 404
-        console.log('error', resError.response)
-        setError(resError.response.data)
-        setIsLoading(false)
+        if (!skipGetResponseAfterDestroy) {
+          setError(resError.response.data)
+          setIsLoading(false)
+        }
       })
+
+    return () => {
+      skipGetResponseAfterDestroy = true
+    }
   }, [isLoading, options, url])
 
   return [

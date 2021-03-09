@@ -7,7 +7,8 @@ import useLocalStorage from '@hooks/useLocalStorage';
 import {CurrentUserContext} from '@contexts/currentUser';
 import BackendErrorMessages from '@components/BackendErrorMessages/BackendErrorMessages';
 
-import './authentication.css'
+
+import styles from './authentication.module.scss'
 
 const Authentication = ({match}) => {
     const isLogin = match.path === '/login'
@@ -25,7 +26,6 @@ const Authentication = ({match}) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         const user = isLogin ? {email, password} : {email, password, username}
-        console.log(user)
         doFetch({
             method: 'POST',
             data: {
@@ -48,18 +48,24 @@ const Authentication = ({match}) => {
     }
 
     return (
-      <div className="auth-page">
+      <div className={styles.authPage}>
         <div className="container--col">
-          <h2 className="auth-page__title">{pageTitle}</h2>
-          <p><Link to={descriptionLink}>{descriptionText}</Link></p>
-          <form className="form" onSubmit={handleSubmit}>
+          <h2 className={styles.title}>{pageTitle}</h2>
+          <p className={styles.question}>
+            <Link 
+              className={styles.questionLink}
+              to={descriptionLink}
+            >
+              {descriptionText}
+            </Link>
+          </p>
+          <form className={styles.form} onSubmit={handleSubmit}>
             {error && <BackendErrorMessages backendErrors={error.errors} />}
-            <fieldset className="form__field">
+            <fieldset className={styles.field}>
               {!isLogin && (
-                            
-                <fieldset className="form__field">
+                <fieldset className={styles.field}>
                   <input 
-                    className="form__input" 
+                    className={styles.inputText} 
                     type="text" 
                     placeholder="Name" 
                     value={username} 
@@ -67,18 +73,18 @@ const Authentication = ({match}) => {
                   />
                 </fieldset>
                         )}
-              <fieldset className="form__field">
+              <fieldset className={styles.field}>
                 <input 
-                  className="form__input" 
+                  className={styles.inputText} 
                   type="email" 
                   placeholder="E-mail" 
                   value={email} 
                   onChange={e => setEmail(e.target.value)}
                 />
               </fieldset>
-              <fieldset className="form__field">
+              <fieldset className={styles.field}>
                 <input 
-                  className="form__input" 
+                  className={styles.inputText} 
                   type="password" 
                   placeholder="Password" 
                   value={password}
@@ -87,7 +93,7 @@ const Authentication = ({match}) => {
               </fieldset>
               <button 
                 type='submit'
-                className="button form__button"
+                className={styles.button} 
                 disabled={isLoading}
               >
                 {pageTitle}

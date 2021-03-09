@@ -7,7 +7,7 @@ import TopBar from '@components/TopBar/TopBar'
 import { CurrentUserProvider } from '@contexts/currentUser'
 import CurrentUserChecker from '@components/CurrentUserChecker/CurrentUserChecker'
 import Routes from './routes'
-import './index.css'
+import './styles/global.scss'
 
 const App = () => (
   <CurrentUserProvider>

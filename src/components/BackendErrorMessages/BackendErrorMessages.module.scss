@@ -1,0 +1,17 @@
+@import '~/styles/global.scss';
+
+.list {
+    max-width: 200px;
+    display: block;
+    list-style-type: disc;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 4px;
+    margin-left: 25px;
+    margin-bottom: 5px;
+}
+
+.item {
+    color: $error;
+    line-height: 1.2;
+}

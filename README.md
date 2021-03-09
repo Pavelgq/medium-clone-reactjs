@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+### TODO
+
+- [ ] Stiles for components
+    - [ ] Choise between CSS-in-JS, StyleComponents, CSS Modules или по старинке BEM
+- [ ] User follow
+- [ ] Comments to articles
+- [ ] Defense routes
+- [ ] What if error is 404
+- [ ] My backend??
+- [X] Setting linter and prettier
+- [X] Setting husky and lint-staged

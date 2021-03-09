@@ -1,0 +1,63 @@
+@import '~/styles/global.scss';
+
+.auth-page {
+    background-color: $secondaryMain;
+}
+
+.title {
+    font-size: 25px;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    color: $primaryText;
+}
+
+.question {
+    
+    &Link {
+        text-decoration: none;
+        color: $secondaryMain;
+        &:hover {
+          text-decoration: underline;
+        }
+    }
+}
+
+.form {
+
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    list-style: none;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.inputText {
+    font: inherit;
+    border: 1px solid rgb(241, 232, 149);
+    text-decoration: none;
+    padding: 7px 5px;
+    margin-bottom: 7px;
+    border-radius: 5px;
+}
+
+.button {
+    background-color: $primaryMain;
+    &:hover {
+        background-color: $primaryDark;
+    }
+    &:active {
+        color: $primaryText;
+        opacity: 70%;
+    }
+}
+
+
+
