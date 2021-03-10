@@ -11,7 +11,7 @@ import Loading from '@components/Loading/Loading';
 import ErrorMessage from '@components/ErrorMessage/ErrorMessage';
 
 import {getPaginator, limit} from '~/utils';
-import './globalFeed.css';
+import styles from './globalFeed.module.css';
 
 const GlobalFeed = ({location, match}) => {
     const {offset, currentPage} = getPaginator(location.search)
@@ -26,15 +26,15 @@ const GlobalFeed = ({location, match}) => {
        doFetch()
     }, [doFetch, currentPage])
     return (
-      <main className='main'>
-        <div className='banner'>
+      <main className={styles.main}>
+        <div className={styles.banner}>
           <div className='container--col'>
-            <h1>Medium Clone</h1>
-            <p>A place to share knowledge</p>
+            <h1 className={styles.title}>Medium Clone</h1>
+            <p className={styles.subTitle}>A place to share knowledge</p>
           </div>
         </div>
-        <div className='content'>
-          <section className='content__feeds feeds'>
+        <div className={styles.content}>
+          <section className={styles.feeds}>
             <FeedToggler />
             {isLoading && <Loading />}
             {error && <ErrorMessage />}
@@ -50,7 +50,7 @@ const GlobalFeed = ({location, match}) => {
             </>
                     )}
           </section>
-          <aside className='content__widgets widgets'>
+          <aside className={styles.widgets}>
             <PopularTags />
           </aside>
         </div>

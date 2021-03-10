@@ -3,33 +3,35 @@ import { Link } from 'react-router-dom'
 
 import TagList from '@components/TagList/TagList';
 import AddToFavorite from '@components/AddToFavorite/AddToFavorite';
-import './Feed.css'
+import styles from './Feed.module.css'
 
 const Feed = ({articles}) => (
-  <div className='article'>
+  <div className={styles.article}>
     {articles.map((article, index) => (
       // eslint-disable-next-line react/no-array-index-key
-      <div className='article__preview' key={index}>
-        <div className='article__meta'>
-          <Link to={`/profiles/${article.author.username}`} className='article__link'>
-            <div className='article__avatar avatar'>
-              <img 
-                src={article.author.image} 
-                alt="author avatar"
-                className='avatar__img'
-              />
-            </div>
-          </Link>
-          <div className="article__info">
-            <Link 
-              to={`/profiles/${article.author.username}`}
-              className="article__link"
-            >
-              {article.author.username}
+      <div className={styles.preview} key={index}>
+        <div className={styles.meta}>
+          <div className='container'>
+            <Link to={`/profiles/${article.author.username}`} className={styles.link}>
+              <div className={styles.avatar}>
+                <img 
+                  src={article.author.image} 
+                  alt="author avatar"
+                  className={styles.image}
+                />
+              </div>
             </Link>
-            <span className="article__data">{article.createdAt}</span>
+            <div className={styles.info}>
+              <Link 
+                to={`/profiles/${article.author.username}`}
+                className={styles.link}
+              >
+                {article.author.username}
+              </Link>
+              <span className={styles.data}>{article.createdAt}</span>
+            </div>
           </div>
-          <div className="">
+          <div className={styles.like}>
             <AddToFavorite 
               isFavorite={article.favorited}
               favoritesCount={article.favoritesCount}
@@ -37,10 +39,10 @@ const Feed = ({articles}) => (
             />
           </div>
         </div>
-        <Link to={`/articles/${article.slug}`} className="article__link">
-          <h1>{article.title}</h1>
-          <p>{article.description}</p>
-          <span>Read more...</span>
+        <Link to={`/articles/${article.slug}`} className={styles.link}>
+          <h1 className={styles.title}>{article.title}</h1>
+          <p className={styles.description}>{article.description}</p>
+          <span className={styles.more}>Read more...</span>
           <TagList tags={article.tagList} />
         </Link>
       </div>

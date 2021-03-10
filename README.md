@@ -74,7 +74,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### TODO
 
 - [ ] Stiles for components
-    - [ ] Choise between CSS-in-JS, StyleComponents, CSS Modules или по старинке BEM
+    - [X] Choise between CSS-in-JS, StyleComponents, CSS Modules или по старинке BEM
 - [ ] User follow
 - [ ] Comments to articles
 - [ ] Defense routes

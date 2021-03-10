@@ -3,53 +3,70 @@ import React, {useContext, Fragment} from 'react'
 import { NavLink, Link } from 'react-router-dom'
 
 import {CurrentUserContext} from '@contexts/currentUser';
-import './TopBar.css';
+import styles from './TopBar.module.scss';
 
 const TopBar = () => {
     const [currentUserState] = useContext(CurrentUserContext)
-    console.log(currentUserState)
     return (
-      <nav className="nav">
+      <nav className={styles.nav}>
         <div className="container">
-          <Link className='nav__logo' to='/'>Medium</Link>
-          <ul className="nav__list list">
-            <li className="list__item item">
-              <NavLink to='/' className='item__link' exact>Home</NavLink>
+          <Link className={styles.logo} to='/'>Medium</Link>
+          <ul className={styles.list}>
+            <li className={styles.item}>
+              <NavLink 
+                to='/' 
+                className={styles.link} 
+                activeClassName={styles.active}
+                exact
+              >
+                Home
+              </NavLink>
             </li>
 
             {currentUserState.isLoggedIn === false && (
             <>
               <li className="list__item item">
-                <NavLink to='/login' className='item__link'>Sign in</NavLink>
-              </li>
-              <li className="list__item item">
-                <NavLink to='/register' className='item__link'>Sign up</NavLink>
-              </li>
-            </>
-                    )}
-
-            {currentUserState.isLoggedIn && (
-            <>
-              <li className="list__item item">
-                <NavLink to='/article/new' className='item__link'>
-                  <ion-icon name="create-outline" />
-                                    &nbsp;New post
-                </NavLink>
-              </li>
-              <li className="list__item item">
-                <NavLink to='/settings' className='item__link'>
-                  <ion-icon name="settings-outline" />
-                                    &nbsp;Settings
+                <NavLink 
+                  to='/login'
+                  className={styles.link}
+                  activeClassName={styles.active}
+                >
+                  Sign in
                 </NavLink>
               </li>
               <li className="list__item item">
                 <NavLink 
-                  to={`/profiles/${currentUserState.currentUser.username}`} 
-                  className="item__link"
+                  to='/register'
+                  className={styles.link}
+                  activeClassName={styles.active}
                 >
-                  <div className='item__avatar avatar'>
+                  Sign up
+                </NavLink>
+              </li>
+            </>
+                    )}
+            {currentUserState.isLoggedIn && (
+            <>
+              <li className={styles.item}>
+                <NavLink to='/article/new' className={styles.link}>
+                  <ion-icon name="create-outline" />
+                                    &nbsp;New post
+                </NavLink>
+              </li>
+              <li className={styles.item}>
+                <NavLink to='/settings' className={styles.link}>
+                  <ion-icon name="settings-outline" />
+                                    &nbsp;Settings
+                </NavLink>
+              </li>
+              <li className={styles.item}>
+                <NavLink 
+                  to={`/profiles/${currentUserState.currentUser.username}`} 
+                  className={styles.link}
+                >
+                  <div className={styles.avatar}>
                     <img 
-                      className="avatar__img" 
+                      className={styles.image}
                       src={currentUserState.currentUser.image 
                         || 'https://static.productionready.io/images/smiley-cyrus.jpg'} 
                       alt='user avatar'

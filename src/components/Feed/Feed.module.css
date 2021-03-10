@@ -2,33 +2,41 @@
    
 }
 
-.article__preview {
+.preview {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     padding-top: 10px;
 }
 
-.article__preview h1 {
+.title{
     margin: 0;
 }
 
-.article__link {
+.link {
     text-decoration: none;
+     color: black;
 }
 
-.article__meta {
+.meta {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     color: #bbb;
     font-size: .8rem;
 }
 
-.article__info {
+.info {
     display: flex;
     flex-direction: column;
     margin-left: 5px;
 }
 
-.article__link {
-    text-decoration: none;
-    color: black;
+.avatar {
+    width: 48px;
+    height: 48px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
 }
