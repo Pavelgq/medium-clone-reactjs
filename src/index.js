@@ -12,7 +12,7 @@ import './styles/global.scss'
 const App = () => (
   <CurrentUserProvider>
     <CurrentUserChecker>
-      <Router>
+      <Router basename="/medium-clone-reactjs">
         <TopBar />
         <Routes />
       </Router>
